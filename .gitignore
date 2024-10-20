@@ -1,0 +1,6 @@
+.env
+/Lib
+/Include
+/Scripts
+__pycache__
+ejemplo.py
