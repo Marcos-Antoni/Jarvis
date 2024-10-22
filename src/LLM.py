@@ -9,23 +9,21 @@ bedrock_client = boto3.client(
 )
 
 def youWant(ask):
-    modelId = "meta.llama3-8b-instruct-v1:0"
+    modelId = "amazon.titan-text-premier-v1:0"
     prompt = ask
-    body = {
-        "prompt": prompt,
-        "max_gen_len": 512,
-        "temperature": 0.5,
-        "top_p": 0.9
-    }
+    body = {"inputText": prompt}
 
-    # Invoca el modelo
-    response = bedrock_client.invoke_model(
-        modelId=modelId,
-        contentType="application/json",
-        accept="application/json",
-        body=json.dumps(body)
-    )
+    try:
+        # Invoca el modelo
+        response = bedrock_client.invoke_model(
+            modelId=modelId,
+            contentType="application/json",
+            accept="application/json",
+            body=json.dumps(body)
+        )
 
-    # Leer y decodificar la respuesta
-    response_body = response['body'].read().decode('utf-8')
-    return response_body
+        # Leer y decodificar la respuesta
+        response_body = response['body'].read().decode('utf-8')
+        return response_body
+    except Exception as e:
+        return json.dumps({"error": "AWS fail", "type": type(e).__name__})
