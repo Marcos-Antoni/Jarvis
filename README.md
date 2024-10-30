@@ -92,6 +92,7 @@ Si deseas contribuir, por favor sigue estos pasos:
 
 ## Recursos Adicionales
 
+- [ChatNarsiso](https://github.com/Marcos-Antoni/ChatNarsiso)
 - [Documentación de Flask](https://flask.palletsprojects.com/)
 - [Documentación de Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 - [AWS](https://aws.amazon.com/)
